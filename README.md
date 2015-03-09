@@ -9,9 +9,9 @@ with a much smaller footprint. It achieves that by basing itself off the great
 
 ```bash
 $ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-alpine-postgres     latest              26206ec033cc        5 minutes ago       27.7 MB
-postgres            latest              0e50da017ee3        3 days ago          213.9 MB
+REPOSITORY          TAG         VIRTUAL SIZE
+alpine-postgres     latest      27.7 MB
+postgres            latest      213.9 MB
 ```
 
 # Build
