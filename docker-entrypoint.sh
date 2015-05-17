@@ -28,8 +28,8 @@ if [ "$1" = 'postgres' ]; then
 			authMethod=trust
 		fi
 		
-		: ${POSTGRES_USER:=postgres}
-		if [ "$POSTGRES_USER" = 'postgres' ]; then
+		: ${POSTGRES_USERNAME:=postgres}
+		if [ "$POSTGRES_USERNAME" = 'postgres' ]; then
 			op='ALTER'
 		else
 			op='CREATE'
@@ -40,11 +40,11 @@ if [ "$1" = 'postgres' ]; then
 		fi
 		
 		gosu postgres postgres --single -jE <<-EOSQL
-			$op USER "$POSTGRES_USER" WITH SUPERUSER $pass ;
+			$op USER "$POSTGRES_USERNAME" WITH SUPERUSER $pass ;
 		EOSQL
 		echo
 		
-		{ echo; echo "host all \"$POSTGRES_USER\" 0.0.0.0/0 $authMethod"; } >> "$PGDATA"/pg_hba.conf
+		{ echo; echo "host all \"$POSTGRES_USERNAME\" 0.0.0.0/0 $authMethod"; } >> "$PGDATA"/pg_hba.conf
 		
 		if [ -d /docker-entrypoint-initdb.d ]; then
 			for f in /docker-entrypoint-initdb.d/*.sh; do
