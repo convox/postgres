@@ -6,6 +6,7 @@ RUN curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/do
 RUN chmod +x /usr/local/bin/gosu
 
 RUN apk-install "postgresql"
+RUN apk-install "postgresql-contrib"
 
 ENV POSTGRES_USERNAME postgres
 ENV POSTGRES_PASSWORD password
