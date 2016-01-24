@@ -12,6 +12,10 @@ ENV POSTGRES_USERNAME postgres
 ENV POSTGRES_PASSWORD password
 ENV POSTGRES_DATABASE app
 
+ENV LINK_SCHEME postgres
+ENV LINK_USERNAME postgres
+ENV LINK_PASSWORD password
+
 ENV LANG en_US.utf8
 ENV PGDATA /var/lib/postgresql/data
 VOLUME /var/lib/postgresql/data
