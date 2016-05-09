@@ -15,6 +15,7 @@ ENV POSTGRES_DATABASE app
 ENV LINK_SCHEME postgres
 ENV LINK_USERNAME postgres
 ENV LINK_PASSWORD password
+ENV LINK_PATH /app
 
 ENV LANG en_US.utf8
 ENV PGDATA /var/lib/postgresql/data
