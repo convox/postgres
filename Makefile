@@ -1,8 +1,8 @@
 build:
-	docker build -t convox/postgres --rm=true .
+	docker build -t convox/mysql --rm=true .
 
 debug:
-	docker run -i -t --entrypoint=sh convox/postgres
+	docker run -i -t --entrypoint=sh convox/mysql
 
 run:
-	docker run -i -p 5432:5432 convox/postgres
+	docker run -i -p 3306:3306 convox/mysql
