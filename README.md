@@ -1,10 +1,10 @@
 # convox/postgres
 
-PostgreSQL docker image based on Alpine Linux
+Mysql docker image based on Alpine Linux
 
-This repo builds a docker image that accepts POSTGRES_USER, POSTGRES_PASSWORD,
-and POSTGRES_DATABASE env vars, in addition to the same env vars as the
-[official postgres build](https://registry.hub.docker.com/_/postgres/) but
+This repo builds a docker image that accepts MYSQL_USER, MYSQL_PASSWORD,
+and MYSQL_DATABASE env vars, in addition to the same env vars as the
+[official postgres build](https://registry.hub.docker.com/_/mysql/) but
 with a much smaller footprint. It achieves that by basing itself off the great
 [alpine](https://github.com/gliderlabs/docker-alpine) docker image by GliderLabs.
 
