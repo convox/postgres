@@ -5,7 +5,7 @@ RUN apk add --no-cache curl postgresql postgresql-contrib
 RUN curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.2/gosu-amd64"
 RUN chmod +x /usr/local/bin/gosu
 
-ENV POSTGRES_USERNAME postgres
+ENV POSTGRES_USER postgres
 ENV POSTGRES_PASSWORD password
 ENV POSTGRES_DATABASE app
 
