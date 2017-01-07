@@ -1,16 +1,23 @@
 FROM postgres:9.6-alpine
+MAINTAINER Convox <support@convox.com>
 
-ENV POSTGRES_USER postgres
-ENV POSTGRES_PASSWORD password
-ENV POSTGRES_DATABASE app
+RUN apk update \
+    && apk add curl \
+    && curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.2/gosu-amd64"
 
-ENV LINK_SCHEME postgres
-ENV LINK_USERNAME postgres
-ENV LINK_PASSWORD password
-ENV LINK_PATH /app
+RUN chmod +x /usr/local/bin/gosu
 
-ENV LANG en_US.utf8
-ENV PGDATA /var/lib/postgresql/data
+ENV \
+    POSTGRES_USER postgres \
+    POSTGRES_PASSWORD password \
+    POSTGRES_DATABASE app \
+    LINK_SCHEME postgres \
+    LINK_USERNAME postgres \
+    LINK_PASSWORD password \
+    LINK_PATH /app \
+    LANG en_US.utf8 \
+    PGDATA /var/lib/postgresql/data
+
 VOLUME /var/lib/postgresql/data
 
 COPY docker-entrypoint.sh /
