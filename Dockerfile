@@ -19,10 +19,12 @@ ENV PGDATA /var/lib/postgresql/data
 VOLUME /var/lib/postgresql/data
 
 COPY docker-entrypoint.sh /
+COPY docker-healthcheck.sh /
 
 RUN apk del curl
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
+HEALTHCHECK --interval=1s --retries=30 CMD ["/docker-healthcheck.sh"]
 
 EXPOSE 5432
 CMD ["postgres"]
