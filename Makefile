@@ -1,8 +1,13 @@
+.PHONY: all build release
+
+all: build
+
 build:
-	docker build -t convox/postgres --rm=true .
+	docker build -t convox/postgres .
+	docker build -t convox/postgres:9 9/
+	docker build -t convox/postgres:10 10/
 
-debug:
-	docker run -i -t --entrypoint=sh convox/postgres
-
-run:
-	docker run -i -p 5432:5432 convox/postgres
+release: build
+	docker push convox/postgres
+	docker push convox/postgres:9
+	docker push convox/postgres:10
